@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08090c">
+<meta name="description" content="Sabarish P — Developer, technology enthusiast and creative thinker.">
+<title>SABARISH P — Digital Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+
+:root {
+ --bg:#08090c;
+ --panel:#101217;
+ --text:#f2f0eb;
+ --muted:#9699a3;
+ --gold:#d6b477;
+ --blue:#8ba9ff;
+ --line:rgba(255,255,255,.12);
+ --max:1160px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+
+body{
+ margin:0;
+ background:var(--bg);
+ color:var(--text);
+ font-family:Manrope,Arial,sans-serif;
+ overflow-x:hidden;
+}
+
+a{color:inherit;text-decoration:none}
+
+.wrap{
+ width:min(var(--max),calc(100% - 48px));
+ margin:auto;
+}
+
+.mono{
+ font-family:"DM Mono",monospace;
+ text-transform:uppercase;
+ letter-spacing:.16em;
+ font-size:10px;
+ color:var(--gold);
+}
+
+/* NAVIGATION */
+
+.topbar{
+ position:fixed;
+ z-index:20;
+ top:0;
+ left:0;
+ width:100%;
+ background:linear-gradient(180deg,rgba(8,9,12,.9),transparent);
+ transition:.3s;
+}
+
+.topbar.scrolled{
+ background:rgba(8,9,12,.88);
+ backdrop-filter:blur(18px);
+ border-bottom:1px solid var(--line);
+}
+
+nav{
+ height:76px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+}
+
+.brand{
+ font-weight:800;
+ letter-spacing:.13em;
+ font-size:13px;
+}
+
+.brand span{color:var(--gold)}
+
+.navlinks{
+ display:flex;
+ gap:30px;
+ align-items:center;
+}
+
+.navlinks a{
+ font-size:11px;
+ color:#c6c6c9;
+ transition:.25s;
+}
+
+.navlinks a:hover{color:var(--gold)}
+
+.nav-cta{
+ border:1px solid rgba(214,180,119,.55);
+ padding:11px 16px;
+ color:var(--gold)!important;
+}
+
+.menu{
+ display:none;
+ background:none;
+ border:1px solid var(--line);
+ color:white;
+ padding:9px 12px;
+ font:inherit;
+}
+
+/* HERO */
+
+.hero{
+ min-height:100svh;
+ display:flex;
+ align-items:center;
+ position:relative;
+ isolation:isolate;
+ padding:130px 0 80px;
+ overflow:hidden;
+}
+
+.hero:before{
+ content:"";
+ position:absolute;
+ z-index:-2;
+ width:760px;
+ height:760px;
+ border-radius:50%;
+ right:-15%;
+ top:3%;
+ background:radial-gradient(
+ circle,
+ rgba(93,119,190,.17),
+ rgba(214,180,119,.07) 34%,
+ transparent 68%
+ );
+ filter:blur(12px);
+}
+
+.hero:after{
+ content:"";
+ position:absolute;
+ z-index:-1;
+ inset:0;
+ background:
+ linear-gradient(90deg,var(--bg) 5%,rgba(8,9,12,.75) 48%,transparent),
+ linear-gradient(0deg,var(--bg),transparent 32%);
+}
+
+.hero-grid{
+ display:grid;
+ grid-template-columns:1.25fr .75fr;
+ gap:50px;
+ align-items:center;
+}
+
+.eyebrow{
+ display:flex;
+ align-items:center;
+ gap:14px;
+ margin-bottom:28px;
+}
+
+.eyebrow:before{
+ content:"";
+ width:42px;
+ height:1px;
+ background:var(--gold);
+}
+
+h1{
+ font-size:clamp(62px,10vw,136px);
+ line-height:.88;
+ letter-spacing:-.085em;
+ margin:0;
+ font-weight:700;
+}
+
+.hero h1 .surname{
+ display:block;
+ color:transparent;
+ -webkit-text-stroke:1px rgba(242,240,235,.72);
+}
+
+.hero h1 .first{display:block}
+
+.hero-sub{
+ font-size:clamp(16px,2vw,21px);
+ line-height:1.7;
+ color:#b8bac1;
+ max-width:540px;
+ margin:32px 0 0;
+}
+
+.hero-sub em{
+ font-family:"Playfair Display",serif;
+ color:var(--gold);
+ font-size:1.12em;
+}
+
+.hero-actions{
+ display:flex;
+ gap:14px;
+ flex-wrap:wrap;
+ margin-top:38px;
+}
+
+.btn{
+ padding:15px 21px;
+ border:1px solid var(--line);
+ font-size:11px;
+ letter-spacing:.1em;
+ text-transform:uppercase;
+ transition:.3s;
+ display:inline-flex;
+ align-items:center;
+ gap:18px;
+}
+
+.btn.primary{
+ background:var(--gold);
+ color:#15120c;
+ border-color:var(--gold);
+ font-weight:800;
+}
+
+.btn:hover{
+ transform:translateY(-4px);
+ border-color:var(--gold);
+}
+
+.btn.primary:hover{background:#ead1a5}
+
+/* MONOGRAM CARD */
+
+.hero-card{
+ justify-self:end;
+ width:min(100%,340px);
+ aspect-ratio:4/5;
+ border:1px solid rgba(214,180,119,.3);
+ position:relative;
+ padding:20px;
+ background:linear-gradient(
+ 145deg,
+ rgba(255,255,255,.07),
+ rgba(255,255,255,.01)
+ );
+ box-shadow:0 30px 100px #0008;
+}
+
+.hero-card:before{
+ content:"";
+ position:absolute;
+ inset:10px;
+ border:1px solid rgba(255,255,255,.08);
+}
+
+.card-orbit{
+ position:absolute;
+ inset:14%;
+ border:1px solid rgba(139,169,255,.35);
+ border-radius:50%;
+ transform:rotate(-24deg) scaleY(.7);
+}
+
+.card-orbit:before,
+.card-orbit:after{
+ content:"";
+ position:absolute;
+ border:1px solid rgba(214,180,119,.3);
+ border-radius:50%;
+ inset:15%;
+ transform:rotate(55deg);
+}
+
+.card-orbit:after{
+ inset:30%;
+ border-color:rgba(255,255,255,.18);
+}
+
+.monogram{
+ position:absolute;
+ inset:0;
+ display:grid;
+ place-items:center;
+ font-family:"Playfair Display",serif;
+ font-size:clamp(90px,14vw,160px);
+ color:rgba(242,240,235,.88);
+ letter-spacing:-.12em;
+}
+
+.card-index{
+ position:absolute;
+ left:25px;
+ bottom:25px;
+}
+
+.card-index strong{
+ display:block;
+ font-size:12px;
+ letter-spacing:.16em;
+}
+
+.card-index small{
+ display:block;
+ color:var(--muted);
+ font:10px "DM Mono",monospace;
+ margin-top:7px;
+ letter-spacing:.12em;
+}
+
+.card-no{
+ position:absolute;
+ right:24px;
+ top:24px;
+ color:var(--gold);
+ font:10px "DM Mono",monospace;
+}
+
+.scroll-note{
+ position:absolute;
+ bottom:32px;
+ left:50%;
+ transform:translateX(-50%);
+ font:9px "DM Mono",monospace;
+ color:#777;
+ letter-spacing:.2em;
+ display:flex;
+ gap:14px;
+ align-items:center;
+}
+
+.scroll-note:before{
+ content:"";
+ height:1px;
+ width:35px;
+ background:var(--gold);
+}
+
+/* COMMON SECTIONS */
+
+section{
+ padding:120px 0;
+ position:relative;
+}
+
+.section-head{
+ display:flex;
+ justify-content:space-between;
+ align-items:end;
+ gap:25px;
+ margin-bottom:55px;
+}
+
+.section-head h2{
+ font-size:clamp(38px,6vw,68px);
+ letter-spacing:-.065em;
+ line-height:.98;
+ margin:15px 0 0;
+}
+
+.section-head p{
+ color:var(--muted);
+ font-size:13px;
+ line-height:1.8;
+ max-width:330px;
+ margin:0;
+}
+
+/* ABOUT */
+
+.about{
+ background:#0d0f14;
+ border-top:1px solid var(--line);
+ border-bottom:1px solid var(--line);
+}
+
+.about-grid{
+ display:grid;
+ grid-template-columns:.8fr 1.2fr;
+ gap:90px;
+}
+
+.about-stamp{
+ border:1px solid var(--line);
+ min-height:300px;
+ display:flex;
+ flex-direction:column;
+ justify-content:space-between;
+ padding:25px;
+ background:
+ radial-gradient(circle at 80% 20%,rgba(139,169,255,.12),transparent 45%),
+ #0a0c10;
+}
+
+.about-stamp .big{
+ font:clamp(70px,10vw,120px)/.9 "Playfair Display",serif;
+ color:var(--gold);
+}
+
+.about-stamp p{
+ font:10px "DM Mono",monospace;
+ color:var(--muted);
+ letter-spacing:.14em;
+ line-height:1.8;
+}
+
+.about-copy{
+ font-size:clamp(19px,2.3vw,27px);
+ line-height:1.65;
+ color:#c7c8cc;
+ margin:0;
+}
+
+.about-copy strong{
+ color:var(--text);
+ font-weight:600;
+}
+
+.about-copy em{
+ font-family:"Playfair Display",serif;
+ color:var(--gold);
+}
+
+.about-meta{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:25px;
+ margin-top:42px;
+ padding-top:28px;
+ border-top:1px solid var(--line);
+}
+
+.meta-label{
+ font:9px "DM Mono",monospace;
+ color:var(--gold);
+ letter-spacing:.15em;
+}
+
+.meta-value{
+ font-size:13px;
+ margin-top:9px;
+ color:#ddd;
+}
+
+/* SKILLS */
+
+.skills-grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ border-top:1px solid var(--line);
+ border-left:1px solid var(--line);
+}
+
+.skill{
+ min-height:175px;
+ padding:25px;
+ border-right:1px solid var(--line);
+ border-bottom:1px solid var(--line);
+ transition:.3s;
+}
+
+.skill:hover{background:#11141b}
+
+.skill .num{
+ font:10px "DM Mono",monospace;
+ color:var(--gold);
+}
+
+.skill h3{
+ font-size:17px;
+ margin:40px 0 8px;
+}
+
+.skill p{
+ font-size:11px;
+ color:var(--muted);
+ line-height:1.6;
+ margin:0;
+}
+
+/* PROJECTS */
+
+.projects{
+ background:#0d0f14;
+ border-top:1px solid var(--line);
+ border-bottom:1px solid var(--line);
+}
+
+.project-list{
+ display:grid;
+ gap:15px;
+}
+
+.project{
+ display:grid;
+ grid-template-columns:80px 1fr 1fr auto;
+ gap:25px;
+ align-items:center;
+ padding:30px;
+ border:1px solid var(--line);
+ background:rgba(255,255,255,.015);
+ transition:.35s;
+}
+
+.project:hover{
+ border-color:rgba(214,180,119,.55);
+ transform:translateX(6px);
+ background:rgba(214,180,119,.035);
+}
+
+.project-no{
+ font:12px "DM Mono",monospace;
+ color:var(--gold);
+}
+
+.project h3{
+ font-size:clamp(21px,3vw,32px);
+ letter-spacing:-.04em;
+ margin:0;
+}
+
+.project p{
+ font-size:12px;
+ line-height:1.7;
+ color:var(--muted);
+ margin:0;
+ max-width:430px;
+}
+
+.project-tag{
+ font:9px "DM Mono",monospace;
+ letter-spacing:.12em;
+ color:var(--gold);
+ white-space:nowrap;
+}
+
+/* JOURNEY */
+
+.journey-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:18px;
+}
+
+.journey-card{
+ border:1px solid var(--line);
+ padding:32px;
+ min-height:220px;
+ position:relative;
+ overflow:hidden;
+}
+
+.journey-card:after{
+ content:"";
+ position:absolute;
+ width:180px;
+ height:180px;
+ border:1px solid rgba(214,180,119,.13);
+ border-radius:50%;
+ right:-70px;
+ bottom:-90px;
+ box-shadow:
+ 0 0 0 25px rgba(214,180,119,.025),
+ 0 0 0 50px rgba(214,180,119,.02);
+}
+
+.journey-card h3{
+ font-size:22px;
+ margin:28px 0 10px;
+}
+
+.journey-card p{
+ font-size:12px;
+ color:var(--muted);
+ line-height:1.8;
+ max-width:420px;
+ margin:0;
+}
+
+/* CONTACT */
+
+.contact{
+ background:
+ radial-gradient(ellipse at 50% 100%,rgba(139,169,255,.12),transparent 55%),
+ #0d0f14;
+ border-top:1px solid var(--line);
+ text-align:center;
+ padding:130px 0;
+}
+
+.contact h2{
+ font-size:clamp(48px,9vw,105px);
+ letter-spacing:-.08em;
+ line-height:.95;
+ margin:20px 0 25px;
+}
+
+.contact h2 span{
+ font-family:"Playfair Display",serif;
+ font-style:italic;
+ color:var(--gold);
+ font-weight:500;
+}
+
+.contact p{
+ color:var(--muted);
+ font-size:13px;
+ line-height:1.8;
+ max-width:460px;
+ margin:0 auto 35px;
+}
+
+.contact-links{
+ display:flex;
+ justify-content:center;
+ gap:12px;
+ flex-wrap:wrap;
+}
+
+/* FOOTER */
+
+footer{
+ padding:25px 0;
+ border-top:1px solid var(--line);
+ display:flex;
+ justify-content:space-between;
+ gap:20px;
+ color:#777;
+ font:9px "DM Mono",monospace;
+ letter-spacing:.12em;
+ text-transform:uppercase;
+}
+
+/* ANIMATIONS */
+
+.reveal{
+ opacity:0;
+ transform:translateY(28px);
+ transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.visible{
+ opacity:1;
+ transform:none;
+}
+
+.cursor-glow{
+ position:fixed;
+ width:260px;
+ height:260px;
+ border-radius:50%;
+ background:radial-gradient(circle,rgba(139,169,255,.07),transparent 70%);
+ pointer-events:none;
+ z-index:0;
+ transform:translate(-50%,-50%);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:800px){
+
+ .hero-grid{grid-template-columns:1fr}
+ .hero-card{display:none}
+ .hero{min-height:90svh}
+
+ .section-head{display:block}
+ .section-head p{margin-top:20px}
+
+ .about-grid{
+  grid-template-columns:1fr;
+  gap:35px;
+ }
+
+ .about-stamp{min-height:220px}
+
+ .skills-grid{grid-template-columns:repeat(2,1fr)}
+
+ .project{
+  grid-template-columns:45px 1fr auto;
+  gap:15px;
+ }
+
+ .project p{grid-column:2/4}
+
+ .journey-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:620px){
+
+ .wrap{
+  width:min(var(--max),calc(100% - 34px));
+ }
+
+ nav{height:66px}
+
+ .menu{display:block}
+
+ .navlinks{
+  display:none;
+  position:absolute;
+  top:66px;
+  left:0;
+  width:100%;
+  padding:22px 25px 28px;
+  background:rgba(8,9,12,.97);
+  border-bottom:1px solid var(--line);
+  flex-direction:column;
+  align-items:flex-start;
+  gap:20px;
+ }
+
+ .navlinks.open{display:flex}
+
+ .hero{padding-top:115px}
+
+ .hero h1{font-size:clamp(60px,18vw,100px)}
+
+ section{padding:85px 0}
+
+ .skills-grid{grid-template-columns:1fr 1fr}
+
+ .skill{
+  padding:18px;
+  min-height:155px;
+ }
+
+ .skill h3{
+  font-size:15px;
+  margin-top:32px;
+ }
+
+ .project{
+  padding:22px 17px;
+  grid-template-columns:30px 1fr auto;
+ }
+
+ .project-tag{font-size:8px}
+ .project h3{font-size:22px}
+ .project p{font-size:11px}
+
+ .about-meta{gap:20px}
+
+ .contact{padding:100px 0}
+
+ footer{
+  flex-direction:column;
+  line-height:1.8;
+ }
+}
+
+@media(prefers-reduced-motion:reduce){
+
+ *,
+ *:before,
+ *:after{
+  scroll-behavior:auto!important;
+  transition:none!important;
+  animation:none!important;
+ }
+
+ .reveal{
+  opacity:1;
+  transform:none;
+ }
+}
+</style>
+</head>
+
+<body>
+
+<div class="cursor-glow" aria-hidden="true"></div>
+
+<header class="topbar" id="topbar">
+<div class="wrap">
+<nav>
+
+<a class="brand" href="#home">S<span>.</span>P</a>
+
+<button class="menu" id="menuBtn" aria-label="Toggle navigation">
+MENU
+</button>
+
+<div class="navlinks" id="navlinks">
+<a href="#about">ABOUT</a>
+<a href="#skills">EXPERTISE</a>
+<a href="#projects">WORK</a>
+<a href="#journey">JOURNEY</a>
+<a class="nav-cta" href="#contact">LET'S CONNECT ↗</a>
+</div>
+
+</nav>
+</div>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+<div class="wrap hero-grid">
+
+<div>
+
+<div class="eyebrow mono">
+PORTFOLIO · 2026 · INDIA
+</div>
+
+<h1>
+<span class="first">SABARISH</span>
+<span class="surname">P.</span>
+</h1>
+
+<p class="hero-sub">
+I turn curiosity into code, ideas into experiences,
+and imagination into <em>something real.</em>
+</p>
+
+<div class="hero-actions">
+<a class="btn primary" href="#projects">
+EXPLORE MY WORK <span>↘</span>
+</a>
+
+<a class="btn" href="#about">
+DISCOVER MY STORY <span>↗</span>
+</a>
+</div>
+
+</div>
+
+<div class="hero-card">
+
+<div class="card-no">FIG. 001 — IDENTITY</div>
+
+<div class="card-orbit"></div>
+
+<div class="monogram">
+S<span style="color:var(--gold)">.</span>P
+</div>
+
+<div class="card-index">
+<strong>SABARISH P</strong>
+<small>
+DEVELOPER IN PROGRESS<br>
+COIMBATORE · INDIA
+</small>
+</div>
+
+</div>
+
+</div>
+
+<div class="scroll-note">SCROLL TO EXPLORE</div>
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+<div class="wrap">
+
+<div class="section-head reveal">
+
+<div>
+<div class="mono">01 / THE PERSON</div>
+
+<h2>
+Curiosity is my<br>
+<em style="font-family:'Playfair Display';font-weight:500">
+starting point.
+</em>
+</h2>
+</div>
+
+<p>
+A little about the person behind the screen —
+the learner, builder, and storyteller.
+</p>
+
+</div>
+
+<div class="about-grid">
+
+<div class="about-stamp reveal">
+
+<div class="mono">A NOTE ON IDENTITY</div>
+
+<div class="big">
+Think.<br>Make.
+</div>
+
+<p>
+LEARN CONTINUOUSLY<br>
+BUILD WITH PURPOSE<br>
+STAY CURIOUS.
+</p>
+
+</div>
+
+<div class="reveal">
+
+<p class="about-copy">
+I'm <strong>Sabarish P</strong>, a B.Tech Information
+Technology student at <strong>Nehru Institute of
+Technology, Coimbatore</strong>.
+
+I enjoy exploring how technology works and using it
+to create things that are
+<em>useful, thoughtful, and memorable.</em>
+
+<br><br>
+
+From developing web experiences to writing stories,
+I like bringing different forms of creativity together.
+I'm at the beginning of my journey — and always
+building toward what's next.
+</p>
+
+<div class="about-meta">
+
+<div>
+<div class="meta-label">EDUCATION</div>
+<div class="meta-value">B.Tech · Information Technology</div>
+</div>
+
+<div>
+<div class="meta-label">INSTITUTION</div>
+<div class="meta-value">Nehru Institute of Technology</div>
+</div>
+
+<div>
+<div class="meta-label">FOUNDATION</div>
+<div class="meta-value">DCA · CCP</div>
+</div>
+
+<div>
+<div class="meta-label">CURRENT CHAPTER</div>
+<div class="meta-value">Learning · Building · Exploring</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="wrap">
+
+<div class="section-head reveal">
+
+<div>
+<div class="mono">02 / WHAT I EXPLORE</div>
+
+<h2>
+Tools of my<br>
+trade<span style="color:var(--gold)">.</span>
+</h2>
+</div>
+
+<p>
+A growing toolkit shaped by practice,
+experimentation, and the desire to understand more.
+</p>
+
+</div>
+
+<div class="skills-grid reveal">
+
+<article class="skill">
+<div class="num">01 — CODE</div>
+<h3>C Programming</h3>
+<p>Building a strong foundation in programming logic.</p>
+</article>
+
+<article class="skill">
+<div class="num">02 — CODE</div>
+<h3>C++</h3>
+<p>Exploring structured and object-oriented programming.</p>
+</article>
+
+<article class="skill">
+<div class="num">03 — WEB</div>
+<h3>Web Development</h3>
+<p>Creating responsive and interactive digital experiences.</p>
+</article>
+
+<article class="skill">
+<div class="num">04 — MINDSET</div>
+<h3>Problem Solving</h3>
+<p>Breaking challenges down and learning through solutions.</p>
+</article>
+
+<article class="skill">
+<div class="num">05 — DESIGN</div>
+<h3>UI & Experience</h3>
+<p>Thinking about clarity, visual identity, and usability.</p>
+</article>
+
+<article class="skill">
+<div class="num">06 — CREATE</div>
+<h3>Creative Writing</h3>
+<p>Turning imagination into stories and experiences.</p>
+</article>
+
+<article class="skill">
+<div class="num">07 — EXPLORE</div>
+<h3>Emerging Tech</h3>
+<p>Curious about new tools and possibilities in technology.</p>
+</article>
+
+<article class="skill">
+<div class="num">08 — APPROACH</div>
+<h3>Learn by Building</h3>
+<p>Testing ideas through projects and hands-on practice.</p>
+</article>
+
+</div>
+</div>
+</section>
+
+
+<!-- PROJECTS -->
+
+<section class="projects" id="projects">
+
+<div class="wrap">
+
+<div class="section-head reveal">
+
+<div>
+<div class="mono">03 / SELECTED WORK</div>
+
+<h2>
+Ideas made<br>
+<em style="font-family:'Playfair Display';font-weight:500">
+tangible.
+</em>
+</h2>
+</div>
+
+<p>
+A selection of projects that reflect my interests in
+technology, learning, awareness, and storytelling.
+</p>
+
+</div>
+
+<div class="project-list">
+
+<a class="project reveal"
+href="https://peterparker765890-star.github.io/roamx-live-city/"
+target="_blank" rel="noopener">
+
+<div class="project-no">01</div>
+<h3>ROAMX</h3>
+
+<p>
+A city-awareness and environmental resilience
+platform focused on pollution awareness, disaster
+preparedness, and more informed communities.
+</p>
+
+<div class="project-tag">SDG 11 ↗</div>
+
+</a>
+
+
+<a class="project reveal"
+href="#"
+aria-label="ChemNova X project link to be added">
+
+<div class="project-no">02</div>
+<h3>ChemNova X</h3>
+
+<p>
+An interactive Engineering Chemistry learning platform
+bringing together learning resources, calculations,
+molecular exploration, and virtual experiments.
+</p>
+
+<div class="project-tag">EDTECH</div>
+
+</a>
+
+
+<a class="project reveal"
+href="https://peterparker765890-star.github.io/the-harbour-webhook/"
+target="_blank" rel="noopener">
+
+<div class="project-no">03</div>
+<h3>The Harbour</h3>
+
+<p>
+An original crime-thriller web novel presented as a
+cinematic digital storytelling experience.
+</p>
+
+<div class="project-tag">STORYTELLING ↗</div>
+
+</a>
+
+</div>
+
+<p class="mono" style="margin-top:22px;color:#777">
+PROJECT DETAILS AND LINKS CAN BE UPDATED AS THE WORK EVOLVES.
+</p>
+
+</div>
+</section>
+
+
+<!-- JOURNEY -->
+
+<section id="journey">
+
+<div class="wrap">
+
+<div class="section-head reveal">
+
+<div>
+<div class="mono">04 / BEYOND THE CODE</div>
+
+<h2>
+One mind.<br>
+Many interests<span style="color:var(--gold)">.</span>
+</h2>
+</div>
+
+<p>
+Technology is one way to create.
+Curiosity gives me many more.
+</p>
+
+</div>
+
+<div class="journey-grid">
+
+<article class="journey-card reveal">
+<div class="mono">01 / STORY</div>
+<h3>Writing & Storytelling</h3>
+<p>
+I enjoy creating fictional worlds, developing suspense,
+and exploring how a story can become an immersive
+digital experience.
+</p>
+</article>
+
+<article class="journey-card reveal">
+<div class="mono">02 / VISUALS</div>
+<h3>Design & Presentation</h3>
+<p>
+I care about how ideas are communicated — from a
+clean interface to a memorable presentation.
+</p>
+</article>
+
+<article class="journey-card reveal">
+<div class="mono">03 / DISCOVERY</div>
+<h3>Learning Beyond Class</h3>
+<p>
+Exploring tools, technologies, and concepts beyond
+the syllabus helps me connect theory with practical work.
+</p>
+</article>
+
+<article class="journey-card reveal">
+<div class="mono">04 / PURPOSE</div>
+<h3>Building with Meaning</h3>
+<p>
+I'm interested in digital projects that make information
+easier to access and real-world challenges easier
+to understand.
+</p>
+</article>
+
+</div>
+</div>
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="wrap reveal">
+
+<div class="mono">05 / THE NEXT CHAPTER</div>
+
+<h2>
+Have an idea?<br>
+<span>Let's build.</span>
+</h2>
+
+<p>
+I'm always open to learning, meaningful collaborations,
+and conversations about technology and creative ideas.
+</p>
+
+<div class="contact-links">
+
+<a class="btn primary"
+href="https://github.com/peterparker765890-star"
+target="_blank" rel="noopener">
+GITHUB ↗
+</a>
+
+<a class="btn" href="mailto:">
+EMAIL — ADD YOUR ADDRESS
+</a>
+
+</div>
+
+</div>
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div>© 2026 SABARISH P · PERSONAL PORTFOLIO</div>
+
+<div>DESIGNED & DEVELOPED BY SABARISH P</div>
+
+<a href="#home">BACK TO TOP ↑</a>
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+const topbar = document.getElementById('topbar');
+
+const menuBtn = document.getElementById('menuBtn');
+
+const navlinks = document.getElementById('navlinks');
+
+window.addEventListener('scroll', () => {
+ topbar.classList.toggle('scrolled', window.scrollY > 30);
+});
+
+menuBtn.addEventListener('click', () => {
+ navlinks.classList.toggle('open');
+});
+
+navlinks.querySelectorAll('a').forEach(a => {
+ a.addEventListener('click', () => {
+  navlinks.classList.remove('open');
+ });
+});
+
+const observer = new IntersectionObserver(entries => {
+
+ entries.forEach(entry => {
+
+  if(entry.isIntersecting) {
+
+   entry.target.classList.add('visible');
+
+   observer.unobserve(entry.target);
+
+  }
+
+ });
+
+}, {threshold:0.12});
+
+document.querySelectorAll('.reveal').forEach(el => {
+ observer.observe(el);
+});
+
+const glow = document.querySelector('.cursor-glow');
+
+window.addEventListener('pointermove', e => {
+
+ if(e.pointerType === 'mouse') {
+
+  glow.style.left = e.clientX + 'px';
+
+  glow.style.top = e.clientY + 'px';
+
+ }
+
+});
+
+</script>
+
+</body>
+</html>
